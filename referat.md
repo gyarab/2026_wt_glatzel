@@ -1,6 +1,6 @@
 # Referát: Larry Tesler
 
-![Fotka Larryho Teslera z Wikipedie](pictures/Larry_Tesler_Smiles_at_Whisper.jpeg)
+![Fotka Larryho Teslera z Wikipedie](C:\Users\ondre\Documents\2026_wt_glatzel\Larry_Tesler_Smiles_at_Whisper.jpeg)
 
 > **Lawrence Gordon Tesler** (24. dubna 1945 – 16. února 2020) byl americký počítačový vědec, který pracoval v oblasti interakce mezi člověkem a počítačem. Tesler působil ve společnostech Xerox PARC, Apple, Amazon a Yahoo!. Během působení v PARC pracoval na jazyce Smalltalk (prvním dynamickém objektově orientovaném programovacím jazyce) a na procesoru Gypsy (prvním textovém editoru s grafickým uživatelským rozhraním pro Xerox Alto). Během této doby spolu s kolegou Timem Mottem vyvinul koncept funkcí **vyjmout, kopírovat a vložit (cut, copy, paste)** a myšlenku nemodálního softwaru. V Apple pracoval na projektech Apple Lisa a Apple Newton a pomáhal vyvíjet Object Pascal a jeho využití v nástrojích pro vývoj aplikací, včetně MacApp.
 
