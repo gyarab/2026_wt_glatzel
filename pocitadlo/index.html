@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Počítadlo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Styl pro kolečko s číslem */
+        #cislo {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            border-radius: 50%;
+            line-height: 100px;
+            font-size: 36px;
+            margin: 20px auto;
+        }
+
+        /* Styl pro tlačítka */
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Počítadlo kliků</h1>
+
+    <!-- Kolečko zobrazující číslo -->
+    <div id="cislo">0</div>
+
+    <!-- Tlačítka s reakcí na kliknutí (onclick) -->
+    <button onclick="pocet++; document.getElementById('cislo').innerText = pocet;">Click</button>
+    <button onclick="pocet = 0; document.getElementById('cislo').innerText = pocet;">Reset</button>
+
+    <script>
+        let pocet = 0;
+    </script>
+
+</body>
+</html>
