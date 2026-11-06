@@ -4,66 +4,58 @@
     <meta charset="UTF-8">
     <title>Vizitka</title>
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
-
-        /* Kontejner vizitky s vyžádanými CSS vlastnostmi */
-        .vizitka {
-            background-color: #f2f2f2;
-            border: 2px solid black;
-            border-radius: 10px;
+        /* Vizitka se stínem a zaoblenými rohy */
+        .card {
+            background-color: #f9f9f9;
+            border: 2px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 15px;
-            margin: 0 auto;
-            width: 300px;
+            margin: 20px auto;
+            width: 270px;
             text-align: center;
         }
 
-        /* Profilový obrázek: šířka 250px a rámeček */
+        /* Obrázek s požadovanou šířkou, rámečkem a zaoblením */
         img {
             width: 250px;
-            border: 1px solid black;
-            border-radius: 5px;
-            margin: 10px auto;
-            display: block;
+            border: 1px solid #333;
+            border-radius: 8px;
         }
 
-        /* Zarovnání seznamu vlevo, aby to bylo přehledné */
         ul {
             text-align: left;
         }
 
         /* Barevné tlačítko */
         button {
-            background-color: #008CBA;
+            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 10px 15px;
+            padding: 8px 15px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <div class="vizitka">
-        <!-- Profilový obrázek (nahraď svým souborem, např. profil.jpg) -->
-        <img src="profil.jpg" alt="Profilová fotka">
+    <div class="card">
+        <!-- Profilový obrázek -->
+        <img src="profil.jpg" alt="Profil">
 
-        <h2>Ondřej Glatzel</h2>
-        <p>The TOP G .</p>
-        <p>Studuju na Arabské na programovacím oboru.</p>
+        <h2>Jan Novák</h2>
+        <p>Jsem student a učím se dělat webové stránky v HTML a CSS.</p>
 
-        <p><strong>3 oblíbené věci:</strong></p>
+        <p><b>Moje 3 oblíbené věci:</b></p>
         <ul>
-            <li>Tanec</li>
-            <li>Programování</li>
-            <li>Hudba</li>
+            <li>Hry</li>
+            <li>Káva</li>
+            <li>Spánek</li>
         </ul>
 
-        <!-- Barevné tlačítko s JS akcí -->
-        <button onclick="alert('Idk proste tlacitko')">Tlačítko</button>
+        <!-- Tlačítko s JS reakcí -->
+        <button onclick="alert('Klikl jsi na kontakt!')">Kontakt</button>
     </div>
 
 </body>
