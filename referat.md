@@ -1,4 +1,4 @@
-# Referát: Larry Tesler
+# Larry Tesler
 
 ![Fotka Larryho Teslera z Wikipedie](Larry_Tesler_Smiles_at_Whisper.jpeg)
 
