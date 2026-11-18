@@ -2,26 +2,100 @@
 <html lang="cs" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
-    <!-- BEZ TOHOTO ŘÁDKU RESPONZIVITA NA MOBILU NEFUNGUJE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxes</title>
+    <title>Krabice od Pepy – Stěhování bez stresu</title>
 
     <!-- Bootstrap 6 (alpha) – CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
 
     <style>
-        /* pomocné orámování krabic, ať vidíme, co se děje */
-        .krabice {
-            border: 2px dashed tomato;
-            padding: 1rem;
-            min-height: 80px;
+        body {
+            background-color: #fff8f1;
+            color: #292524;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .orange-card {
+            background: #ffffff;
+            border: 2px solid #fed7aa;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 2px solid #ffedd5;
+        }
+
+        .btn-orange {
+            background-color: #f97316;
+            color: #ffffff;
+            border: none;
+            font-weight: 700;
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-orange:hover {
+            background-color: #ea580c;
+            color: #ffffff;
+            transform: scale(1.03);
+        }
+
+        .text-orange {
+            color: #ea580c;
+        }
+
+        .badge-orange {
+            background-color: #ffedd5;
+            color: #c2410c;
+            border: 1px solid #fdba74;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 2px dashed #fdba74;
+            border-radius: 1.25rem;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-style: solid;
+            border-color: #f97316;
+        }
+
+        .box-item {
+            background: #ffffff;
+            border: 2px dashed #fdba74;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            text-align: center;
+            font-weight: 600;
+            color: #c2410c;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .box-item:hover {
+            transform: translateY(-3px);
+            border-color: #f97316;
+            border-style: solid;
         }
     </style>
 </head>
 <body>
 
     <!-- Ukazatel aktuálního breakpointu (vpravo dole) -->
-    <div class="position-fixed bottom-0 end-0 m-3 badge theme-inverse fs-md">
+    <div class="position-fixed bottom-0 end-0 m-3 badge theme-inverse fs-md z-3">
         <span class="sm:d-none">XS &lt; 576</span>
         <span class="d-none sm:d-inline md:d-none">SM ≥ 576</span>
         <span class="d-none md:d-inline lg:d-none">MD ≥ 768</span>
@@ -30,16 +104,127 @@
         <span class="d-none 2xl:d-inline">2XL ≥ 1536</span>
     </div>
 
-    <div class="container">
-        <h1 class="my-5">Boxes</h1>
+    <!-- ÚKOL 8: Navbar s drawerem (balí se pod 1024 px díky lg:navbar-expand) -->
+    <nav class="navbar lg:navbar-expand sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-orange fs-4 d-flex align-items-center gap-2" href="#">
+                📦 Krabice od Pepy
+            </a>
+            <button class="btn-icon navbar-toggler border-0" type="button"
+                    data-bs-toggle="drawer" data-bs-target="#menu" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <dialog class="drawer drawer-end bg-white border-start" id="menu">
+                <div class="drawer-header border-bottom d-flex justify-content-between align-items-center p-3">
+                    <h5 class="drawer-title text-orange fw-bold mb-0">Kam to bude?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Zavřít"></button>
+                </div>
+                <div class="drawer-body p-3">
+                    <ul class="nav navbar-nav lg:ms-auto gap-3">
+                        <li class="nav-item"><a class="nav-link text-orange active fw-bold" href="#">Úvod</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#sluzby">Co umíme</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#galerie">Naše krabice</a></li>
+                    </ul>
+                </div>
+            </dialog>
+        </div>
+    </nav>
 
-        
+    <!-- ÚKOL 7: Skrývání prvků (pouze žlutý pruh pro mobil) -->
+    <div class="container mt-4">
+        <div class="alert theme-warning md:d-none mb-3 rounded-3">Jsi na mobilu (vidíš to jen pod 768 px)</div>
     </div>
-    <div class="krabice">bez kontejneru</div>
-    <div class="container"><div class="krabice">container</div></div>
-    <div class="container-fluid"><div class="krabice">container-fluid</div></div>
 
-    <!-- Bootstrap 6 – JS (je to ES modul => type="module") -->
+    <!-- ÚKOL 9: Hero sekce -->
+    <header class="container my-4">
+        <div class="orange-card text-center py-5">
+            <span class="badge badge-orange mb-2 px-3 py-2 rounded-pill">Nejlepší karton ve městě!</span>
+            <h1 class="display-4 fw-bold mb-3">Stěhuješ se? Hoď to do našich krabic!</h1>
+            <p class="text-secondary fs-lg mb-4 mx-auto" style="max-width: 600px;">Žádné složitosti. Prostě si vyber krabice, naskládej do nich věci a my ti je klidně pomůžeme i odvézt dodávkou.</p>
+            <a href="#sluzby" class="btn btn-orange btn-lg">Mrknout na nabídku</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- ÚKOL 5: Obsah + boční panel (2:1 na LG, na mobilu panel nahoře) -->
+        <div class="row g-4 mb-5">
+            <main class="col-12 lg:col-8">
+                <div class="orange-card h-100 mb-0">
+                    <h2 class="h3 fw-bold mb-3 text-orange">Proč brát krabice zrovna od nás?</h2>
+                    <p class="text-secondary mb-0">Protože se nerozpadnou hned, jak do nich dáš knížky nebo nádobí. Všechny máme skladem a můžeš si je vyzvednout hned dneska.</p>
+                </div>
+            </main>
+            <aside class="col-12 lg:col-4 order-first lg:order-last">
+                <div class="orange-card h-100 mb-0" style="background-color: #fff7ed;">
+                    <h3 class="h4 fw-bold mb-3 text-orange">Rychlý kontakt</h3>
+                    <p class="text-secondary mb-1">📞 Zavolej Pepovi: <strong>777 123 456</strong></p>
+                    <p class="text-secondary mb-0">📍 Sklad: U Krabice 12, Praha</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ÚKOL 9: 3 karty se službami -->
+        <section id="sluzby" class="mb-5">
+            <h2 class="h3 fw-bold mb-4 text-center text-orange">S čím ti pomůžeme</h2>
+            <div class="row row-cols-1 md:row-cols-3 g-4">
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="fs-1 mb-2">📦</div>
+                            <h3 class="h5 fw-bold mb-2">Prodej krabic</h3>
+                            <p class="text-secondary fs-sm mb-0">Malé, velké, na šaty i na skleničky. Prostě všechny, co budeš potřebovat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="fs-1 mb-2">🚚</div>
+                            <h3 class="h5 fw-bold mb-2">Odvoz dodávkou</h3>
+                            <p class="text-secondary fs-sm mb-0">Nemáš auto? Přijedeme, naložíme to a odvezeme, kam budeš chtít.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 service-card shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="fs-1 mb-2">🏠</div>
+                            <h3 class="h5 fw-bold mb-2">Úschovna věcí</h3>
+                            <p class="text-secondary fs-sm mb-0">Když ještě nemáš hotový nový byt, pohlídáme ti krabice u nás v suchu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÚKOL 9: Galerie 8 krabic -->
+        <section id="galerie" class="orange-card mb-5">
+            <h2 class="h3 fw-bold mb-4 text-center text-orange">Přehled našich krabic</h2>
+            <div class="row row-cols-2 md:row-cols-3 lg:row-cols-4 g-4">
+                <div class="col"><div class="box-item">Krabice 1<small class="text-muted fw-normal">knihy a sešity</small></div></div>
+                <div class="col"><div class="box-item">Krabice 2<small class="text-muted fw-normal">oblečení a boty</small></div></div>
+                <div class="col"><div class="box-item">Krabice 3<small class="text-muted fw-normal">nádobí a sklo</small></div></div>
+                <div class="col"><div class="box-item">Krabice 4<small class="text-muted fw-normal">peřiny a polštáře</small></div></div>
+                <div class="col"><div class="box-item">Krabice 5<small class="text-muted fw-normal">hračky a drobnosti</small></div></div>
+                <div class="col"><div class="box-item">Krabice 6<small class="text-muted fw-normal">elektronika a kabely</small></div></div>
+                <div class="col"><div class="box-item">Krabice 7<small class="text-muted fw-normal">kosmetika a drogerie</small></div></div>
+                <div class="col"><div class="box-item">Krabice 8<small class="text-muted fw-normal">velká na všechno</small></div></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ÚKOL 9: Patička -->
+    <footer class="bg-white py-4 border-top border-warning-subtle">
+        <div class="container d-flex flex-column lg:flex-row justify-content-between align-items-center text-center lg:text-start gap-3">
+            <span class="text-secondary fs-sm">© 2026 Krabice od Pepy • Děláme stěhování v pohodě 🧡</span>
+            <div class="d-flex gap-3">
+                <a href="#" class="text-orange text-decoration-none fs-sm fw-bold">Ceník</a>
+                <a href="#" class="text-orange text-decoration-none fs-sm fw-bold">Kontakt</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 6 – JS -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
 </body>
 </html>
